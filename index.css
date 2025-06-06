@@ -1,0 +1,934 @@
+/* Root color variables */
+:root {
+    --color-bg: #f6f6f6;
+    --color-text: #222;
+    --color-bg-secondary: #fff;
+    --color-link-bg: #f2f2f2;
+    --color-link-hover-bg: #333;
+    --color-link-hover-text: #fff;
+    --color-footer-bg: #fff;
+    --color-footer-text: #222;
+    --color-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    --color-nav-shadow: 0 2px 8px rgba(62, 53, 53, 0.12);
+}
+
+/* Dark mode overrides */
+body.darkmode {
+    --color-bg: #181818;
+    --color-text: #f6f6f6;
+    --color-bg-secondary: #232323;
+    --color-link-bg: #232323;
+    --color-link-hover-bg: #fff;
+    --color-link-hover-text: #222;
+    --color-footer-bg: #232323;
+    --color-footer-text: #f6f6f6;
+    --color-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    --color-nav-shadow: 0 2px 8px rgba(0,0,0,0.24);
+}
+
+main section ul h3 {
+    text-align: center;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text);
+    background: var(--color-bg);
+  transition: background 0.2s, color 0.2s;
+}
+
+header,
+main,
+section,
+.nav-menu,
+footer,
+.contact-form {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation Bar */
+.topnav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+.nav-toggle {
+    background: var(--color-link-hover-bg);
+    color: var(--color-link-hover-text);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-menu {
+    position: fixed;
+    top: 20px;
+    right: -180px;
+    width: 160px;
+    height: 200px;
+    background: var(--color-bg-secondary);
+    box-shadow: var(--color-nav-shadow);
+    border-radius: 32px;
+    transition: right 0.3s;
+    z-index: 1000;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-menu.open {
+    right: 20px;
+}
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.nav-menu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.nav-menu li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+.nav-menu li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1rem;
+}
+.nav-menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Simple toggle switch for dark mode */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    vertical-align: middle;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: background 0.3s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+.switch input:checked + .slider {
+    background-color: #333;
+}
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Center all main content on each page */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Adjust as needed */
+    text-align: center;
+}
+
+/* Optional: Center section content if you use <section> */
+main section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* Center the project list and remove bullets */
+main section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main section ul li {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 24px;
+    text-align: center;
+    background: var(--color-bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 18px 0 10px 0;
+}
+
+/* Center all project descriptions in the project list */
+main section ul li p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+main section ul h3 {
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+}
+
+/* Footer styles: horizontal nav, no dots, centered */
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: 4px 0;
+    font-size: 0.67rem;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    gap: 16px; /* Reduced gap */
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0; /* Reduced margin */
+}
+
+footer ul li {
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li a {
+    color: var(--color-footer-text);
+    text-decoration: none;
+    font-size: 0.85rem; /* Smaller font */
+    padding: 4px 10px;  /* Smaller padding */
+    border-radius: 14px;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: var(--color-shadow);
+    background: var(--color-link-bg);
+    margin: 0 1px;
+    display: inline-block;
+}
+
+header nav ul li a,
+footer ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: 
+        background 0.2s,
+        color 0.2s,
+        box-shadow 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: var(--color-shadow);
+    background: var(--color-link-bg);
+    margin: 0 2px;
+    display: inline-block;
+}
+
+header nav ul li a:hover,
+footer ul li a:hover {
+    background: var(--color-link-hover-bg);
+    color: var(--color-link-hover-text);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    text-decoration: none;
+    transform: translateY(-2px) scale(1.05);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.85rem; /* Smaller font */
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;      /* Make the nav horizontal */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    gap: 24px;                /* Space between items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- CONTACT PAGE COLOR OVERHAUL --- */
+
+/* Contact container and form: filler matches theme */
+.contact-container,
+.contact-form {
+    background: var(--color-bg); 
+    color: var(--color-text);    
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-links a,
+.contact-form button {
+    color: var(--color-text); 
+}
+
+/* Contact form input and textarea: filler matches theme, text is opposite */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: var(--color-bg);           
+    color: var(--color-text);              /* <-- Use text color for input text */
+    border: 1px solid var(--color-link-bg);
+    border-radius: 5px;
+    margin-bottom: 18px;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+/* Contact links: always use theme background and text color */
+.contact-links a {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 0 1px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+    border: 1px solid var(--color-link-bg);
+}
+
+.contact-links a:hover {
+    background: var(--color-link-bg);
+    color: var(--color-link-hover-bg);
+}
+
+/* Contact form button: always use theme background and text color */
+.contact-form button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+    border: 1px solid var(--color-link-bg);
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 20px 0 10px 0;
+    width: 100%;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Profile section layout */
+.profile-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.profile-pic {
+    flex: 1 1 240px;
+    min-width: 180px;
+    max-width: 240px;
+    order: 1;
+}
+
+.profile-info {
+    flex: 2 1 320px;
+    min-width: 220px;
+    order: 2;
+}
+
+/* Circle for image */
+.profile-pic {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-link-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Rectangle for info */
+.profile-info {
+    height: 190px;
+    min-width: 480px;
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 48px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Skills section layout */
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.skills-box {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 48px;
+    min-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 230px; 
+    justify-content: center;
+}
+
+.skills-box h3 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.skills-logos {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-logo {
+    width: 192px;   
+    height: 192px;  
+    border-radius: 50%;
+    background: var(--color-link-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.skill-logo img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- PROFILE PAGE DARK MODE ENHANCEMENT --- */
+
+/* Make profile and skills boxes/circles stand out in dark mode */
+body.darkmode .profile-pic,
+body.darkmode .skill-logo {
+    background: #23272f; /* Slightly lighter than main dark bg */
+    box-shadow: 0 2px 16px rgba(0,0,0,0.32);
+}
+
+body.darkmode .profile-info,
+body.darkmode .skills-box {
+    background: #23272f; /* Slightly lighter than main dark bg */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.04); /* subtle border for separation */
+}
+
+/* Flip card container */
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.flip-card-front img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    background: var(--color-link-bg);
+    color: var(--color-text);
+    padding: 16px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile picture */
+.profile-pic.flip-card {
+    perspective: 1200px;
+    cursor: pointer;
+}
+.profile-pic .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.profile-pic.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.profile-pic .flip-card-front,
+.profile-pic .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-pic .flip-card-back {
+    transform: rotateY(180deg);
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* OS logos section under skills */
+.os-logos {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.os-logo {
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    border: 2px dashed rgba(0,0,0,0.08); /* Optional: subtle outline for visibility */
+    overflow: hidden;
+}
+
+.os-logo img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    display: block;
+    opacity: 0.85; /* Slightly faded for transparent look */
+}
+
+/* OS title styling */
+.os-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 4px; /* Reduce space below the title */
+}
+
+.os-title h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Justify and center the about page introduction */
+main section p {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    display: block;
+}
+
+/* About flip card styles */
+.about-flip-rect {
+    width: 715px;
+    max-width: 98vw;
+    height: 550px;
+    perspective: 1200px;
+    margin: 32px auto 0 auto;
+    cursor: pointer;
+}
+
+.about-flip-rect-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.about-flip-rect.flipped .about-flip-rect-inner {
+    transform: rotateX(180deg);
+}
+
+.about-flip-rect-front,
+.about-flip-rect-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-secondary);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+.about-flip-rect-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-flip-rect-back {
+    transform: rotateX(180deg);
+    padding: 24px;
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
+}
+
+.about-flip-desc h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+
+.about-flip-desc p {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+/* Make the image on the back of the flip card fill the rectangle like the front image */
+/* filepath: c:\Users\admin\Desktop\VSCODE\WEBSITE\index.css */
+.about-flip-rect-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.about-flip-desc {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    background: rgba(35,35,35,0.65); /* Optional: dark overlay for readability */
+    color: #fff;
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 0 0 18px 18px;
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Responsive Design for All Devices */
+/* Add this at the end of your index.css */
+
+/* Tablet adjustments */
+@media (max-width: 900px) {
+    .profile-section {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .profile-info,
+    .skills-box {
+        min-width: 0;
+        width: 90vw;
+        padding: 24px 12px;
+    }
+    .skills-box {
+        height: 180px;
+    }
+    .skill-logo,
+    .os-logo {
+        width: 120px;
+        height: 120px;
+    }
+    .about-flip-rect {
+        width: 95vw;
+        height: 300px;
+        min-width: 0;
+        max-width: 98vw;
+    }
+}
+
+/* Phone adjustments */
+@media (max-width: 600px) {
+    header,
+    main,
+    section,
+    .nav-menu,
+    footer,
+    .contact-form {
+        padding: 0 4vw !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    .profile-section {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .profile-pic,
+    .skill-logo,
+    .os-logo {
+        width: 64px !important;
+        height: 64px !important;
+        min-width: 0 !important;
+    }
+    .profile-info,
+    .skills-box {
+        min-width: 0;
+        width: 98vw;
+        padding: 12px 4vw;
+        font-size: 0.95rem;
+    }
+    .skills-box {
+        height: 90px;
+    }
+    .skills-logos,
+    .os-logos {
+        gap: 8px;
+    }
+    .os-title h3,
+    .skills-box h3 {
+        font-size: 1rem;
+    }
+    .about-flip-rect {
+        width: 98vw;
+        height: 180px;
+        min-width: 0;
+        max-width: 100vw;
+    }
+    .about-flip-rect-front img,
+    .about-flip-rect-back img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .contact-form {
+        max-width: 98vw;
+        padding: 12px 2vw;
+    }
+    main section ul li {
+        max-width: 98vw;
+        padding: 10px 2vw;
+    }
+    .nav-menu {
+        width: 98vw;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        top: 0;
+        height: auto;
+    }
+    .nav-menu.open {
+        right: 0;
+    }
+    .topnav {
+        right: 8px;
+        top: 8px;
+    }
+    .about-flip-desc {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    footer {
+        font-size: 0.7rem;
+    }
+}
+
+/* Responsive profile section layout */
+/* filepath: c:\Users\admin\Desktop\VSCODE\WEBSITE\index.css */
+.profile-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.profile-pic {
+    flex: 1 1 240px;
+    min-width: 180px;
+    max-width: 240px;
+    order: 1;
+}
+
+.profile-info {
+    flex: 2 1 320px;
+    min-width: 220px;
+    order: 2;
+}
+
+/* On small screens, stack profile-pic on top */
+@media (max-width: 700px) {
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-pic {
+        order: 1;
+        width: 120px !important;
+        height: 120px !important;
+        max-width: 160px;
+        margin-bottom: 12px;
+    }
+    .profile-info {
+        order: 2;
+        width: 98vw;
+        min-width: 0;
+        padding: 12px 4vw;
+        font-size: 0.95rem;
+        align-items: center;
+        text-align: center;
+    }
+}
