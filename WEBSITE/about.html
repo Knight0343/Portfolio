@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('darkmode');
+  }
+</script>
+  <style>
+  html.darkmode, body.darkmode {
+    background: #181818 !important;
+    color: #f6f6f6 !important;
+  }
+  html.darkmode {
+    /* Inline critical dark variables for instant effect */
+    --color-bg: #181818;
+    --color-text: #f6f6f6;
+    --color-bg-secondary: #232323;
+    --color-link-bg: #232323;
+    --color-link-hover-bg: #fff;
+    --color-link-hover-text: #222;
+    --color-footer-bg: #232323;
+    --color-footer-text: #f6f6f6;
+    --color-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    --color-nav-shadow: 0 2px 8px rgba(0,0,0,0.24);
+  }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - My Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     <!-- Top right nav bar -->
+    <div class="topnav">
+    <button class="nav-toggle" onclick="toggleNavMenu()">&#9776;</button>
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li>
+                <a href="index.html">Profile</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="projects.html">Projects</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+                <li>
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+        <span class="slider"></span>
+    </label>
+</li>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Profile</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p>My name is Alonto, Mustapha C., and I’m an efficient and hardworking individual who always made sure to complete all my homework on time during my first year of college. I take pride in being reliable and open to learning new things, constantly seeking ways to grow both academically and personally. While I’m outgoing and enjoy socializing with others, I also value my personal space and downtime, striking a balance between being around people and recharging on my own.</p>
+        </section>
+        <section>
+            <h2>Experiences</h2>
+            <ul>
+  <li>Very interested in technology at a young age</li>
+  <li>Used to work for my father and brother who were at the time have expertise at hardware and software</li>
+  <li>In Grade 12, We work at a police station, computer related works life documentaion and arranging of files and paper works and gained valuable experience in a professional environment.</li>
+</ul>
+            <div class="about-flip-rect" onclick="this.classList.toggle('flipped')">
+      <div class="about-flip-rect-inner">
+        <div class="about-flip-rect-front">
+          <img src="images/workimmersion2.jpeg" alt="About Me Image" />
+        </div>
+        <div class="about-flip-rect-back">
+          <img src="images/work immersion1.png" alt="Certificate" />
+        </div>
+      </div>
+    </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 ALONTO</p>
+    </footer>
+    <script>
+        function toggleNavMenu() {
+            var nav = document.getElementById('navMenu');
+            nav.classList.toggle('open');
+        }
+        // Optional: Close nav menu when clicking outside
+        document.addEventListener('click', function(event) {
+            var nav = document.getElementById('navMenu');
+            var toggle = document.querySelector('.nav-toggle');
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('open');
+            }
+        });
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
